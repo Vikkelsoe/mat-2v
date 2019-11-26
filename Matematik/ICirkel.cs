@@ -18,7 +18,7 @@ namespace Matematik
 
         public bool Skæring(ILineærFunktion lineærFunktion);
 
-        public List<Punkt2D> Skæringspunkter(Cirkel cirkel);
+        public List<Punkt2D> Skæringspunkter(ICirkel cirkel);
 
         public double ArealAfCirkeludsnit(double vinkel, bool grader=true);
 
