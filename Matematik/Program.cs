@@ -6,7 +6,6 @@ namespace Matematik
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             Punkt2D p1 = new Punkt2D(0, 0);
             Punkt2D p2 = new Punkt2D(1, 1);
             Punkt2D p3 = new Punkt2D(5, 8);
@@ -17,6 +16,9 @@ namespace Matematik
 
             Console.WriteLine(v1.BeregnLængde());
             Console.WriteLine(v1.BeregnSkalarprodukt(v2));
+            v1.UdskrivVektor();
+            Vektor2D v3 = v1.BeregnTværvektor();
+            
     
 
         }

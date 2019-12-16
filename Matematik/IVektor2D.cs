@@ -16,7 +16,7 @@ namespace Matematik
         public bool ErParallelMed(IVektor2D vektor);
         public bool ErOrtogonalMed(IVektor2D vektor);
 
-        public IVektor2D BeregnTværvektor();
+        public Vektor2D BeregnTværvektor();
 
         public double BeregnSkalarprodukt(IVektor2D vektor);
 

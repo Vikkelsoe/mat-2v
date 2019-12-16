@@ -17,7 +17,13 @@ class Vektor2D : IVektor2D
 
     }
 
+    public void UdskrivVektor()
+    {
+        double xKomposant = Slutpunkt.X - Startpunkt.X;
+        double yKomposant = Slutpunkt.Y - Startpunkt.Y;
 
+        Console.WriteLine(xKomposant+";"+yKomposant);
+    }
 
     public double BeregnLængde()
     {
@@ -37,9 +43,14 @@ class Vektor2D : IVektor2D
         return (v1xKomposant*v2xKomposant + v1yKomposant*v2yKomposant);
     }
 
-    public IVektor2D BeregnTværvektor()
+    public Vektor2D BeregnTværvektor()
     {
-        throw new System.NotImplementedException();
+        double xKomposant = Slutpunkt.X - Startpunkt.X;
+        double yKomposant = Slutpunkt.Y - Startpunkt.X;
+
+        Punkt2D tp = new Punkt2D(-(Slutpunkt.X+yKomposant), Slutpunkt.Y+xKomposant);
+
+        return(new Vektor2D(Startpunkt,tp));
     }
 
     public IVektor2D BeregnVektorsum(IVektor2D vektor)
