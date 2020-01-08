@@ -22,7 +22,19 @@ class Vektor2D : IVektor2D
         double xKomposant = Slutpunkt.X - Startpunkt.X;
         double yKomposant = Slutpunkt.Y - Startpunkt.Y;
 
-        Console.WriteLine(xKomposant+";"+yKomposant);
+        Console.WriteLine("Vektorens komposanter: " + xKomposant+";"+yKomposant);
+    }
+
+    public void UdskrivPunkter()
+    {
+        double p1x = Startpunkt.X;
+        double p1y = Startpunkt.Y;
+        double p2x = Slutpunkt.X;
+        double p2y = Slutpunkt.Y;
+
+        Console.WriteLine("Vektorens begyndelsespunkt: ("+p1x+","+p1y+")");
+        Console.WriteLine("Vektorens slutpunkt: ("+p2x+","+p2y+")");
+
     }
 
     public double BeregnLængde()
@@ -46,21 +58,58 @@ class Vektor2D : IVektor2D
     public Vektor2D BeregnTværvektor()
     {
         double xKomposant = Slutpunkt.X - Startpunkt.X;
-        double yKomposant = Slutpunkt.Y - Startpunkt.X;
+        double yKomposant = Slutpunkt.Y - Startpunkt.Y;
 
-        Punkt2D tp = new Punkt2D(-(Slutpunkt.X+yKomposant), Slutpunkt.Y+xKomposant);
+        Punkt2D tp = new Punkt2D(-yKomposant + Startpunkt.X, xKomposant+Startpunkt.Y);
 
         return(new Vektor2D(Startpunkt,tp));
     }
 
-    public IVektor2D BeregnVektorsum(IVektor2D vektor)
+    public Vektor2D BeregnVektorsum(IVektor2D vektor)
     {
-        throw new System.NotImplementedException();
+        double xAddKomposant = vektor.Slutpunkt.X - vektor.Startpunkt.X;
+        double yAddKomposant = vektor.Slutpunkt.Y - vektor.Startpunkt.Y;
+
+        Punkt2D tp = new Punkt2D(Slutpunkt.X + xAddKomposant, Slutpunkt.Y + yAddKomposant);
+        return(new Vektor2D(Startpunkt,tp));
+    }
+
+    public Vektor2D BeregnVektordifferens(IVektor2D vektor)
+    {
+        double xAddKomposant = vektor.Slutpunkt.X - vektor.Startpunkt.X;
+        double yAddKomposant = vektor.Slutpunkt.Y - vektor.Startpunkt.Y;
+
+        Punkt2D tp = new Punkt2D(Slutpunkt.X - xAddKomposant, Slutpunkt.Y - yAddKomposant);
+        return(new Vektor2D(Startpunkt,tp));
     }
 
     public double BeregnVinkelMedXAkse()
     {
-        throw new System.NotImplementedException();
+        double xKomposant = Slutpunkt.X - Startpunkt.X;
+        double yKomposant = Slutpunkt.Y - Startpunkt.Y;
+
+        double v = Math.Atan((yKomposant/xKomposant)) * 180/Math.PI;
+
+        if (xKomposant > 0 && yKomposant > 0){
+            return(v);
+        } 
+        else if (xKomposant < 0 && yKomposant > 0){
+            return(v+180);
+        }
+        else if (xKomposant < 0 && yKomposant < 0){
+            return(v+180);
+        }
+        else if (xKomposant > 0 && yKomposant < 0){
+            return(v+360);
+        }
+        else if (xKomposant == 0 && yKomposant > 0)
+            return(90);
+        else if (xKomposant == 0 && yKomposant < 0)
+            return(270);
+        else if (xKomposant > 0 && yKomposant == 0)
+            return(0);
+        else
+            return(180);
     }
 
     public bool ErOrtogonalMed(IVektor2D vektor)

@@ -20,7 +20,9 @@ namespace Matematik
 
         public double BeregnSkalarprodukt(IVektor2D vektor);
 
-        public IVektor2D BeregnVektorsum(IVektor2D vektor);
+        public Vektor2D BeregnVektorsum(IVektor2D vektor);
+
+        public Vektor2D BeregnVektordifferens(IVektor2D vektor);
 
     }
 }
