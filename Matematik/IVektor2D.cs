@@ -13,8 +13,8 @@ namespace Matematik
 
         public double BeregnLængde();
         public double BeregnVinkelMedXAkse();
-        public bool ErParallelMed(IVektor2D vektor);
-        public bool ErOrtogonalMed(IVektor2D vektor);
+        public bool ErParallelMed(IVektor2D vektor1, IVektor2D vektor2);
+        public bool ErOrtogonalMed(IVektor2D vektor1, IVektor2D vektor2);
 
         public Vektor2D BeregnTværvektor();
 

@@ -112,13 +112,24 @@ class Vektor2D : IVektor2D
             return(180);
     }
 
-    public bool ErOrtogonalMed(IVektor2D vektor)
+    public bool ErOrtogonalMed(IVektor2D vektor1, IVektor2D vektor2)
     {
-        throw new System.NotImplementedException();
+        if (vektor1.BeregnSkalarprodukt(vektor2)==0){
+            return(true);
+        }
+        else
+            return(false);
     }
 
-    public bool ErParallelMed(IVektor2D vektor)
+    public bool ErParallelMed(IVektor2D vektor1, IVektor2D vektor2)
     {
-        throw new System.NotImplementedException();
+        
+        Vektor2D tvektor1 = vektor1.BeregnTværvektor();
+
+        if (tvektor1.BeregnSkalarprodukt(vektor2)==0){
+            return(true);
+        }
+        else
+            return(false);
     }
 }
